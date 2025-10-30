@@ -1,15 +1,12 @@
 from collections import deque
-name = input()
 
-customers = deque()
+water_amount: int = int(input())
+names_queue: deque[str] = deque()
 
-while name != "End":
-    if name == "Paid":
-        while customers:
-            print(customers.popleft())
-    else:
-        customers.append(name)
-    name = input()
+name: str = input()
+while name != 'Start':
+    names_queue.append(name)
 
+    name: str = input()
 
-print(f"{len(customers)} people remaining.")
+print(names_queue)
