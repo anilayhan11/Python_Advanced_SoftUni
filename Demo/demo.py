@@ -1,16 +1,35 @@
 from collections import deque
 
-customer_name: str = input()
-customers_queue: deque = deque()
+liters_total: int = int(input())
+people_queue: deque[str] = deque()
 
-while customer_name != 'End':
+person: str = input()
+while person != 'Start':
+    people_queue.append(person)
+    person: str = input()
 
-    if customer_name == 'Paid':
-        while customers_queue:
-            print(customers_queue.popleft())
+command: str = input()
+while command != 'End':
+    data: list[str] = command.split()
+
+    if len(data) == 2:
+        liters_refill: int = int(data[1])
+        liters_total += int(liters_refill)
+
     else:
-        customers_queue.append(customer_name)
+        liters_person = int(data[0])
+        person: str = people_queue.popleft()
 
-    customer_name: str = input()
+        if int(liters_person) <= liters_total:
+            liters_total -= int(liters_person)
 
-print(f'{len(customers_queue)} people remaining.')
+            print(f'{person} got water')
+
+        else:
+            print(f'{person} must wait')
+
+    command: str = input()
+
+print(f'{liters_total} liters left')
+
+
