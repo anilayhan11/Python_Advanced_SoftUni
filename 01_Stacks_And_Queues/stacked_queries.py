@@ -1,24 +1,24 @@
-numbers = []
+my_stack: list[int] = []
+n: int = int(input())
 
-for _ in range(int(input())):
-    numbers_data = [int(x) for x in input().split()]
-    command = numbers_data[0]
+for _ in range(n):
+    query: list[int] = [int(x) for x in input().split(' ')]
+    command: int = query[0]
 
     if command == 1:
-        numbers.append(numbers_data[1])
+        number = query[1]
+        my_stack.append(number)
     elif command == 2:
-        if numbers:
-            numbers.pop()
+        if my_stack:
+            my_stack.pop()
     elif command == 3:
-        if numbers:
-            print(max(numbers))
+        if my_stack:
+            print(max(my_stack))
     elif command == 4:
-        if numbers:
-            print(min(numbers))
+        if my_stack:
+            print(min(my_stack))
 
-numbers.reverse()
+my_stack.reverse()
+print(*my_stack, sep=", ")  # -> Modifies the existing list
 
-print(*numbers, sep=", ")
-
-
-
+# print(*my_stack[::-1], sep=', ') -> creates a new list

@@ -1,17 +1,17 @@
-numbers = []
+nums_stack: list[str] = []
 
 map_functions = {
-    "1": lambda x: numbers.append(x[1]),
-    "2": lambda x: numbers.pop() if numbers else None,
-    "3": lambda x: print(max(numbers)) if numbers else None,
-    "4": lambda x: print(min(numbers)) if numbers else None,
+    1: lambda x: nums_stack.append(x[1]),
+    2: lambda x: nums_stack.pop() if nums_stack else None,
+    3: lambda x: print(max(nums_stack)) if nums_stack else None,
+    4: lambda x: print(min(nums_stack)) if nums_stack else None,
 }
 
-for _ in range(int(input())):
-    numbers_data = input().split()
+n = int(input())
+for _ in range(n):
+    numbers_data = [int(x) for x in input().split()]
     command = numbers_data[0]
     map_functions[command](numbers_data)
 
-numbers.reverse()
-
-print(*numbers, sep=", ")
+nums_stack.reverse()
+print(*nums_stack, sep=", ")

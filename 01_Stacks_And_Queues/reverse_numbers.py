@@ -1,11 +1,4 @@
-from collections import deque
+nums: list[str] = input().split(' ')
 
-numbers = deque(input().split())
-for _ in range(len(numbers)):
-    print(numbers.pop(), end=" ")
-
-# numbers = deque(input().split())
-# numbers.reverse()
-# print(" ".join(numbers))
-
-# print(*numbers)
+while nums:
+    print(nums.pop(), end=' ')
