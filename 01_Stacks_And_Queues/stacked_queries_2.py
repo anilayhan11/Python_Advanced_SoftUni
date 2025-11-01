@@ -9,7 +9,7 @@ map_functions = {
 
 n = int(input())
 for _ in range(n):
-    numbers_data = [int(x) for x in input().split()]
+    numbers_data: list[int] = [int(x) for x in input().split()]
     command = numbers_data[0]
     map_functions[command](numbers_data)
 
