@@ -1,7 +1,8 @@
-occurrences = {}
+nums: tuple = tuple([float(x) for x in input().split()])
+data: dict = {}
 
-for symbol in input():
-    occurrences[symbol] = occurrences.get(symbol, 0) + 1
+for i in nums:
+    data[i] = nums.count(i)
 
-for symbol, times in sorted(occurrences.items()):
-    print(f"{symbol}: {times} time/s")
+for key, value in data.items():
+    print(f'{key:.1f} - {value} times')
